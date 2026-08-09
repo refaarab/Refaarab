@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Refa Arab Tourist And Travel Agency | Kabul, Afghanistan</title>
+<meta name="description" content="Refa Arab Tourist And Travel Agency - Your Comfort Is Our Priority. Umrah packages, Iran visa, Tajikistan visa, and flight tickets from Kabul.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0A2E6B;
+  --royal: #1E5AA8;
+  --sky: #4A90D9;
+  --gold: #C9A84C;
+  --gold-light: #E8D5A3;
+  --gold-dark: #A0822A;
+  --cream: #FAF8F3;
+  --white: #FFFFFF;
+  --charcoal: #1a1a2e;
+  --text-muted: #6b6b7b;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; font-size:16px; }
+body { font-family:'Inter',sans-serif; color:var(--charcoal); background:var(--white); line-height:1.7; overflow-x:hidden; }
+
+h1,h2,h3,h4,h5 { font-family:'Playfair Display',serif; font-weight:600; line-height:1.15; }
+
+a { text-decoration:none; color:inherit; }
+ul { list-style:none; }
+img { max-width:100%; display:block; }
+
+/* PRELOADER */
+#preloader {
+  position:fixed; inset:0; z-index:9999; background:var(--navy);
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  transition:opacity 1s ease, visibility 1s ease;
+}
+#preloader.hidden { opacity:0; visibility:hidden; pointer-events:none; }
+.preloader-ring {
+  width:80px; height:80px; border:3px solid rgba(201,168,76,0.15);
+  border-top-color:var(--gold); border-radius:50%;
+  animation:spin 1s linear infinite;
+}
+@keyframes spin { to { transform:rotate(360deg); } }
+.preloader-logo {
+  font-family:'Playfair Display',serif; font-size:2rem; color:var(--gold);
+  letter-spacing:6px; margin-top:1.5rem; animation:fadeUp 1s ease 0.3s both;
+}
+.preloader-tagline {
+  font-size:0.75rem; color:rgba(255,255,255,0.5); margin-top:0.5rem;
+  letter-spacing:4px; text-transform:uppercase; animation:fadeUp 1s ease 0.5s both;
+}
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(20px); }
+  to { opacity:1; transform:translateY(0); }
+}
+
+/* NAV */
+#navbar {
+  position:fixed; top:0; left:0; right:0; z-index:1000;
+  padding:1.2rem 5%; display:flex; align-items:center; justify-content:space-between;
+  transition:all 0.5s ease;
+}
+#navbar.scrolled {
+  background:rgba(255,255,255,0.97); backdrop-filter:blur(20px);
+  box-shadow:0 2px 30px rgba(10,46,107,0.08); padding:0.7rem 5%;
+}
+#navbar.scrolled .nav-logo { color:var(--navy); }
+#navbar.scrolled .nav-logo span { color:var(--gold); }
+#navbar.scrolled .nav-link { color:var(--charcoal); }
+#navbar.scrolled .nav-cta { background:var(--navy); color:var(--gold); border-color:var(--navy); }
+#navbar.scrolled .hamburger span { background:var(--navy); }
+
+.nav-logo {
+  font-family:'Playfair Display',serif; font-size:1.5rem; color:var(--white);
+  font-weight:600; letter-spacing:2px; display:flex; align-items:center; gap:0.6rem;
+}
+.nav-logo span { color:var(--gold); }
+.nav-logo-icon {
+  width:42px; height:42px; border-radius:50%;
+  background:linear-gradient(135deg,var(--navy),var(--royal));
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.1rem; border:2px solid var(--gold);
+}
+.nav-links { display:flex; gap:2.2rem; align-items:center; }
+.nav-link {
+  font-size:0.85rem; font-weight:500; color:rgba(255,255,255,0.85);
+  position:relative; transition:color 0.3s; letter-spacing:0.5px;
+}
+.nav-link::after {
+  content:''; position:absolute; bottom:-4px; left:50%; width:0; height:1.5px;
+  background:var(--gold); transition:all 0.3s ease; transform:translateX(-50%);
+}
+.nav-link:hover::after { width:100%; }
+.nav-link:hover { color:var(--gold); }
+.nav-cta {
+  background:transparent; color:var(--gold); padding:0.5rem 1.6rem;
+  border-radius:0; font-weight:600; font-size:0.8rem; letter-spacing:2px;
+  text-transform:uppercase; transition:all 0.3s ease;
+  border:1.5px solid var(--gold);
+}
+.nav-cta:hover { background:var(--gold); color:var(--navy); }
+.hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; z-index:1001; }
+.hamburger span { width:26px; height:2px; background:var(--white); transition:all 0.3s; }
+
+/* HERO */
+.hero {
+  min-height:100vh; position:relative; overflow:hidden;
+  display:flex; align-items:center; justify-content:center;
+}
+.hero-bg {
+  position:absolute; inset:0;
+  background:url('https://images.unsplash.com/photo-1542816417-0983c9c9ad53?w=1920&q=85') center/cover no-repeat;
+}
+.hero-bg::after {
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(10,46,107,0.7) 0%, rgba(10,46,107,0.5) 40%, rgba(10,46,107,0.8) 100%);
+}
+.hero-content { position:relative; z-index:2; text-align:center; padding:8rem 5% 5rem; max-width:900px; }
+.hero-badge {
+  display:inline-block; font-size:0.75rem; color:var(--gold-light);
+  letter-spacing:4px; text-transform:uppercase; margin-bottom:2rem;
+  border-bottom:1px solid rgba(201,168,76,0.4); padding-bottom:0.5rem;
+  animation:fadeUp 1s ease 0.8s both;
+}
+.hero h1 {
+  font-size:clamp(2.8rem,6vw,5rem); color:var(--white); margin-bottom:1.5rem;
+  font-weight:500; letter-spacing:1px; animation:fadeUp 1s ease 1s both;
+}
+.hero h1 em { font-style:italic; color:var(--gold); }
+.hero-sub {
+  font-size:clamp(1rem,1.8vw,1.25rem); color:rgba(255,255,255,0.75);
+  max-width:600px; margin:0 auto 3rem; line-height:1.9; font-weight:300;
+  animation:fadeUp 1s ease 1.2s both;
+}
+.hero-buttons {
+  display:flex; gap:1.2rem; justify-content:center; flex-wrap:wrap;
+  animation:fadeUp 1s ease 1.4s both;
+}
+.btn-gold {
+  background:var(--gold); color:var(--navy); padding:1rem 2.8rem;
+  font-family:'Inter',sans-serif; font-weight:700; font-size:0.85rem;
+  letter-spacing:2px; text-transform:uppercase; transition:all 0.4s ease;
+  border:2px solid var(--gold); display:inline-flex; align-items:center; gap:0.6rem;
+}
+.btn-gold:hover { background:transparent; color:var(--gold); transform:translateY(-3px); }
+.btn-outline {
+  background:transparent; color:var(--white); padding:1rem 2.8rem;
+  font-family:'Inter',sans-serif; font-weight:600; font-size:0.85rem;
+  letter-spacing:2px; text-transform:uppercase; transition:all 0.4s ease;
+  border:1.5px solid rgba(255,255,255,0.3); display:inline-flex; align-items:center; gap:0.6rem;
+}
+.btn-outline:hover { background:var(--white); color:var(--navy); border-color:var(--white); transform:translateY(-3px); }
+.trust-bar {
+  display:flex; gap:2.5rem; justify-content:center; flex-wrap:wrap;
+  margin-top:3rem; font-size:0.8rem; color:rgba(255,255,255,0.5);
+  letter-spacing:1px; animation:fadeUp 1s ease 1.6s both;
+}
+.trust-bar span { display:flex; align-items:center; gap:0.5rem; }
+
+/* SCROLL DOWN */
+.scroll-down {
+  position:absolute; bottom:2rem; left:50%; transform:translateX(-50%);
+  z-index:3; display:flex; flex-direction:column; align-items:center; gap:0.5rem;
+  color:rgba(255,255,255,0.5); font-size:0.7rem; letter-spacing:3px; text-transform:uppercase;
+  animation:fadeUp 1s ease 2s both;
+}
+.scroll-down::after {
+  content:''; width:1px; height:40px; background:rgba(255,255,255,0.3);
+  animation:scrollLine 2s ease-in-out infinite;
+}
+@keyframes scrollLine {
+  0%,100% { transform:scaleY(1); opacity:1; }
+  50% { transform:scaleY(0.5); opacity:0.5; }
+}
+
+/* SECTIONS */
+.section { padding:7rem 5%; }
+.section-title {
+  text-align:center; margin-bottom:4rem;
+}
+.section-title h2 {
+  font-size:clamp(2rem,4vw,3.2rem); color:var(--charcoal); margin-bottom:1rem;
+  font-weight:500;
+}
+.section-title p {
+  color:var(--text-muted); max-width:500px; margin:0 auto;
+  font-size:1.05rem; font-weight:300;
+}
+.title-line {
+  width:60px; height:2px; background:var(--gold); margin:1.2rem auto 0;
+}
+
+/* FEATURES - Arway style */
+.features-section { background:var(--white); padding:5rem 5%; }
+.features-grid {
+  max-width:800px; margin:0 auto; display:flex; flex-direction:column; gap:2.5rem;
+}
+.feature-item {
+  display:flex; align-items:flex-start; gap:1.5rem;
+}
+.feature-icon {
+  width:56px; height:56px; min-width:56px;
+  border:1.5px solid var(--charcoal); border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.4rem;
+}
+.feature-item h3 {
+  font-family:'Inter',sans-serif; font-size:1.1rem; font-weight:500;
+  color:var(--charcoal); margin-bottom:0.3rem;
+}
+.feature-item p {
+  font-size:0.95rem; color:var(--text-muted); line-height:1.7; font-weight:300;
+}
+
+/* DESTINATIONS - Arway style grid */
+.destinations-section { background:var(--cream); padding:0; }
+.destinations-header {
+  text-align:center; padding:5rem 5% 3rem;
+}
+.destinations-header h2 {
+  font-size:clamp(1.8rem,4vw,2.8rem); font-weight:500;
+  letter-spacing:2px; text-transform:uppercase;
+}
+.destinations-grid {
+  display:grid; grid-template-columns:repeat(2,1fr);
+}
+.dest-card {
+  position:relative; overflow:hidden; aspect-ratio:1;
+  cursor:pointer;
+}
+.dest-card img {
+  width:100%; height:100%; object-fit:cover;
+  transition:transform 0.8s ease;
+}
+.dest-card:hover img { transform:scale(1.1); }
+.dest-card::after {
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(180deg, transparent 40%, rgba(10,46,107,0.7) 100%);
+  transition:all 0.4s ease;
+}
+.dest-card:hover::after {
+  background:linear-gradient(180deg, rgba(10,46,107,0.3) 0%, rgba(10,46,107,0.8) 100%);
+}
+.dest-name {
+  position:absolute; bottom:1.5rem; left:1.5rem; z-index:2;
+  font-family:'Playfair Display',serif; font-size:1.4rem;
+  color:var(--white); letter-spacing:2px; text-transform:uppercase;
+  font-weight:500;
+}
+.dest-card .dest-arrow {
+  position:absolute; bottom:1.5rem; right:1.5rem; z-index:2;
+  width:40px; height:40px; border:1.5px solid rgba(255,255,255,0.5);
+  border-radius:50%; display:flex; align-items:center; justify-content:center;
+  color:var(--white); font-size:1.2rem; opacity:0; transform:translateX(-10px);
+  transition:<response clipped><NOTE>Result is longer than **10000 characters**, will be **truncated**.</NOTE> lor:var(--charcoal); margin-bottom:0.5rem; letter-spacing:1px;
+}
+.process-step p {
+  font-size:0.88rem; color:var(--text-muted); line-height:1.7; font-weight:300;
+}
+
+/* TESTIMONIALS */
+.testimonials-section { background:var(--white); }
+.testimonials-grid {
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:2rem; max-width:1100px; margin:0 auto;
+}
+.testimonial-card {
+  background:var(--cream); padding:2.5rem; position:relative;
+  transition:all 0.4s ease;
+}
+.testimonial-card:hover {
+  box-shadow:0 15px 50px rgba(10,46,107,0.08); transform:translateY(-5px);
+}
+.testimonial-card::before {
+  content:'"'; position:absolute; top:1rem; right:1.5rem;
+  font-family:'Playfair Display',serif; font-size:5rem;
+  color:var(--gold); opacity:0.15; line-height:1;
+}
+.stars { color:var(--gold); font-size:1rem; letter-spacing:3px; margin-bottom:1rem; }
+.testimonial-card p {
+  font-size:0.95rem; color:var(--charcoal); line-height:1.8; font-style:italic;
+  margin-bottom:1.5rem; font-weight:300;
+}
+.testimonial-author {
+  font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--navy);
+  font-weight:600;
+}
+.testimonial-type {
+  font-size:0.8rem; color:var(--text-muted); letter-spacing:1px; margin-top:0.2rem;
+}
+
+/* CTA BANNER */
+.cta-banner {
+  position:relative; min-height:60vh; display:flex; align-items:center; justify-content:center;
+  text-align:center; overflow:hidden;
+}
+.cta-banner-bg {
+  position:absolute; inset:0;
+  background:url('https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?w=1920&q=85') center/cover no-repeat;
+}
+.cta-banner-bg::after {
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(135deg, rgba(10,46,107,0.85) 0%, rgba(10,46,107,0.7) 100%);
+}
+.cta-content { position:relative; z-index:2; padding:5rem 5%; max-width:700px; }
+.cta-banner h2 {
+  font-size:clamp(2rem,4.5vw,3.5rem); color:var(--white); margin-bottom:1rem;
+  font-weight:500;
+}
+.cta-banner h2 em { font-style:italic; color:var(--gold); }
+.cta-banner > p {
+  color:rgba(255,255,255,0.7); font-size:1.1rem; margin-bottom:2.5rem;
+  font-weight:300; line-height:1.8;
+}
+.cta-buttons { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+.btn-wa {
+  background:#25D366; color:var(--white); padding:1rem 2.5rem;
+  font-weight:700; font-size:0.85rem; letter-spacing:1px;
+  text-transform:uppercase; transition:all 0.4s ease;
+  border:2px solid #25D366; display:inline-flex; align-items:center; gap:0.6rem;
+}
+.btn-wa:hover { background:transparent; color:#25D366; transform:translateY(-3px); }
+.btn-call-cta {
+  background:transparent; color:var(--white); padding:1rem 2.5rem;
+  font-weight:600; font-size:0.85rem; letter-spacing:1px;
+  text-transform:uppercase; transition:all 0.4s ease;
+  border:1.5px solid rgba(255,255,255,0.3); display:inline-flex; align-items:center; gap:0.6rem;
+}
+.btn-call-cta:hover { background:var(--white); color:var(--navy); transform:translateY(-3px); }
+.working-hours {
+  color:rgba(255,255,255,0.5); font-size:0.85rem; margin-top:2rem; letter-spacing:1px;
+}
+
+/* FAQ */
+.faq-section { background:var(--white); }
+.faq-container { max-width:800px; margin:0 auto; }
+.faq-item {
+  border-bottom:1px solid rgba(10,46,107,0.08); overflow:hidden;
+}
+.faq-q {
+  width:100%; padding:1.5rem 0; display:flex; justify-content:space-between; align-items:center;
+  background:none; border:none; cursor:pointer; font-family:'Inter',sans-serif;
+  font-size:1.05rem; font-weight:500; color:var(--charcoal); text-align:left;
+  transition:color 0.3s;
+}
+.faq-q:hover { color:var(--gold); }
+.faq-icon {
+  width:32px; height:32px; min-width:32px; border-radius:50%;
+  border:1.5px solid var(--gold); display:flex; align-items:center; justify-content:center;
+  font-size:1.2rem; color:var(--gold); transition:all 0.4s ease; margin-left:1rem;
+}
+.faq-item.active .faq-icon {
+  background:var(--gold); color:var(--navy); transform:rotate(45deg);
+}
+.faq-a {
+  max-height:0; overflow:hidden;
+  transition:max-height 0.5s cubic-bezier(0.4,0,0.2,1), padding 0.5s ease;
+}
+.faq-item.active .faq-a { max-height:400px; padding-bottom:1.5rem; }
+.faq-a p {
+  font-size:0.95rem; color:var(--text-muted); line-height:1.8; font-weight:300;
+  padding-right:2rem;
+}
+
+/* FOOTER */
+.footer {
+  background:var(--charcoal); color:var(--white); padding:5rem 5% 1.5rem;
+  position:relative;
+}
+.footer::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:3px;
+  background:linear-gradient(90deg,var(--gold),var(--gold-light),var(--gold));
+}
+.footer-grid {
+  display:grid; grid-template-columns:2fr 1fr 1.5fr;
+  gap:4rem; max-width:1100px; margin:0 auto 4rem;
+}
+.footer-brand h3 {
+  font-family:'Playfair Display',serif; font-size:2rem; color:var(--gold);
+  margin-bottom:1rem; letter-spacing:2px;
+}
+.footer-brand p {
+  font-size:0.9rem; color:rgba(255,255,255,0.5); line-height:1.8;
+  margin-bottom:1.5rem; font-weight:300; max-width:300px;
+}
+.social-links { display:flex; gap:0.8rem; }
+.social-links a {
+  width:42px; height:42px; border:1px solid rgba(255,255,255,0.15);
+  display:flex; align-items:center; justify-content:center;
+  font-size:0.9rem; color:rgba(255,255,255,0.6); transition:all 0.4s;
+}
+.social-links a:hover {
+  background:var(--gold); color:var(--navy); border-color:var(--gold);
+  transform:translateY(-3px);
+}
+.footer-col h4 {
+  font-family:'Inter',sans-serif; font-size:0.85rem; color:var(--gold);
+  margin-bottom:1.5rem; font-weight:600; letter-spacing:2px; text-transform:uppercase;
+}
+.footer-col ul li { margin-bottom:0.8rem; }
+.footer-col ul li a {
+  font-size:0.9rem; color:rgba(255,255,255,0.5); transition:all 0.3s;
+  display:inline-block;
+}
+.footer-col ul li a:hover { color:var(--gold); padding-left:0.5rem; }
+.footer-contact p {
+  font-size:0.9rem; color:rgba(255,255,255,0.5); margin-bottom:0.8rem;
+  line-height:1.7; font-weight:300;
+}
+.footer-contact strong { color:var(--gold); font-weight:500; }
+.footer-contact a { color:var(--gold); transition:opacity 0.3s; }
+.footer-contact a:hover { opacity:0.8; }
+.footer-bottom {
+  text-align:center; padding-top:2rem;
+  border-top:1px solid rgba(255,255,255,0.06);
+  font-size:0.8rem; color:rgba(255,255,255,0.3); letter-spacing:1px;
+}
+
+/* FLOATING */
+.float-wa {
+  position:fixed; bottom:2rem; right:2rem; z-index:999;
+  width:60px; height:60px; border-radius:50%;
+  background:linear-gradient(135deg,#25D366,#128C7E);
+  color:var(--white); display:flex; align-items:center; justify-content:center;
+  font-size:1.7rem; box-shadow:0 6px 25px rgba(37,211,102,0.35);
+  animation:pulse 2.5s ease-in-out infinite; transition:all 0.4s;
+  border:3px solid rgba(255,255,255,0.2);
+}
+.float-wa:hover { transform:scale(1.15); }
+.float-call {
+  position:fixed; bottom:2rem; left:2rem; z-index:999;
+  width:60px; height:60px; border-radius:50%;
+  background:linear-gradient(135deg,var(--gold),var(--gold-dark));
+  color:var(--navy); display:flex; align-items:center; justify-content:center;
+  font-size:1.5rem; box-shadow:0 6px 25px rgba(201,168,76,0.35);
+  transition:all 0.4s; border:3px solid rgba(255,255,255,0.2);
+}
+.float-call:hover { transform:scale(1.15); }
+@keyframes pulse {
+  0%,100% { box-shadow:0 6px 25px rgba(37,211,102,0.35); }
+  50% { box-shadow:0 6px 35px rgba(37,211,102,0.6); }
+}
+
+/* MOBILE STICKY */
+.mobile-bar {
+  display:none; position:fixed; bottom:0; left:0; right:0; z-index:998;
+  background:var(--white); box-shadow:0 -4px 30px rgba(0,0,0,0.1); padding:0.7rem 1rem;
+}
+.mobile-bar-inner { display:flex; gap:0.8rem; }
+.mobile-bar-inner a {
+  flex:1; padding:0.8rem; text-align:center; font-weight:700; font-size:0.85rem;
+  letter-spacing:1px; text-transform:uppercase; transition:all 0.3s;
+}
+.mobile-bar-inner .m-wa { background:#25D366; color:var(--white); }
+.mobile-bar-inner .m-ph { background:var(--navy); color:var(--gold); }
+
+/* REVEAL */
+.reveal { opacity:0; transform:translateY(40px); transition:all 0.9s cubic-bezier(0.4,0,0.2,1); }
+.reveal.visible { opacity:1; transform:translateY(0); }
+.rd1 { transition-delay:0.1s; }
+.rd2 { transition-delay:0.2s; }
+.rd3 { transition-delay:0.3s; }
+.rd4 { transition-delay:0.4s; }
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .nav-links { display:none; }
+  .hamburger { display:flex; }
+  .hero { min-height:100svh; }
+  .hero-content { padding:7rem 5% 4rem; }
+  .destinations-grid { grid-template-columns:1fr; }
+  .footer-grid { grid-template-columns:1fr; gap:2.5rem; }
+  .process-steps { flex-direction:column; align-items:center; }
+  .process-step:not(:last-child)::after { display:none; }
+  .float-wa,.float-call { display:none; }
+  .mobile-bar { display:block; }
+  .section { padding:4rem 5%; }
+  .features-grid { gap:2rem; }
+  .feature-item { gap:1rem; }
+  .feature-icon { width:48px; height:48px; min-width:48px; font-size:1.2rem; }
+  .cta-buttons { flex-direction:column; align-items:center; }
+  .btn-gold,.btn-outline,.btn-wa,.btn-call-cta { width:100%; max-width:320px; justify-content:center; }
+}
+
+/* MOBILE MENU */
+.mobile-menu {
+  position:fixed; inset:0; z-index:999; background:var(--navy);
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2rem;
+  opacity:0; visibility:hidden; transition:all 0.5s ease;
+}
+.mobile-menu.open { opacity:1; visibility:visible; }
+.mobile-menu a {
+  font-family:'Playfair Display',serif; font-size:1.8rem; color:var(--white);
+  transition:all 0.3s;
+}
+.mobile-menu a:hover { color:var(--gold); transform:translateX(10px); }
+.mobile-menu .close-x {
+  position:absolute; top:1.5rem; right:1.5rem; font-size:2.5rem;
+  color:var(--gold); cursor:pointer; transition:transform 0.3s;
+}
+.mobile-menu .close-x:hover { transform:rotate(90deg); }
+</style>
+</head>
+<body>
+
+<!-- PRELOADER -->
+<div id="preloader">
+  <div class="preloader-ring"></div>
+  <div class="preloader-logo">REFA ARAB</div>
+  <div class="preloader-tagline">Your Comfort Is Our Priority</div>
+</div>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <span class="close-x" onclick="toggleMenu()">&times;</span>
+  <a href="#services" onclick="togg<response clipped><NOTE>Result is longer than **10000 characters**, will be **truncated**.</NOTE> 63?w=800&q=80" alt="Tajikistan - Pamir">
+      <span class="dest-name">Tajikistan</span>
+      <span class="dest-arrow">→</span>
+    </div>
+    <div class="dest-card reveal rd3">
+      <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800&q=80" alt="Dubai - UAE">
+      <span class="dest-name">Dubai</span>
+      <span class="dest-arrow">→</span>
+    </div>
+    <div class="dest-card reveal">
+      <img src="https://images.unsplash.com/photo-1527838832700-5059252407fa?w=800&q=80" alt="Turkey - Istanbul">
+      <span class="dest-name">Turkey</span>
+      <span class="dest-arrow">→</span>
+    </div>
+    <div class="dest-card reveal rd1">
+      <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=800&q=80" alt="France - Paris">
+      <span class="dest-name">Europe</span>
+      <span class="dest-arrow">→</span>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section services-section" id="services">
+  <div class="section-title reveal">
+    <h2>Your Comfort Is Our Priority</h2>
+    <p>In Every Service We Provide</p>
+    <div class="title-line"></div>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal rd1">
+      <div class="service-icon">🕋</div>
+      <h3>Umrah & Ziyarat Packages</h3>
+      <p>Complete Umrah packages from Kabul. Flights, accommodation near Haram, transport, and guided religious support. We handle the complexity; you focus on your worship.</p>
+      <a href="https://wa.me/93777181980?text=Salam%2C%20I%20am%20interested%20in%20Umrah%20packages%20from%20Kabul." target="_blank" class="service-link">Request Package →</a>
+    </div>
+    <div class="service-card reveal rd2">
+      <div class="service-icon">🏛️</div>
+      <h3>Iran Visa Services</h3>
+      <p>Fast and reliable Iran visa processing for Afghan passport holders. Pilgrimage, medical, business, and family visit visas — complete documentation support.</p>
+      <a href="https://wa.me/93777181980?text=Salam%2C%20I%20need%20information%20about%20Iran%20visa%20processing." target="_blank" class="service-link">Check Requirements →</a>
+    </div>
+    <div class="service-card reveal rd3">
+      <div class="service-icon">🏔️</div>
+      <h3>Tajikistan Visa Services</h3>
+      <p>Streamlined Tajikistan visa assistance. Whether for family visits, business, or exploring our neighbor to the north, we ensure smooth processing.</p>
+      <a href="https://wa.me/93777181980?text=Salam%2C%20I%20need%20information%20about%20Tajikistan%20visa." target="_blank" class="service-link">Start Application →</a>
+    </div>
+    <div class="service-card reveal rd4">
+      <div class="service-icon">✈️</div>
+      <h3>Flight Tickets</h3>
+      <p>Domestic and international flight bookings at competitive rates. All airlines, all routes — best prices guaranteed from Kabul to the world.</p>
+      <a href="https://wa.me/93777181980?text=Salam%2C%20I%20need%20flight%20ticket%20booking%20assistance." target="_blank" class="service-link">Get Best Price →</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="section why-section" id="why-us">
+  <div class="section-title reveal">
+    <h2>A Name Kabul Has Trusted for Years</h2>
+    <p>Why Families in Kabul Choose Refa Arab</p>
+    <div class="title-line"></div>
+  </div>
+  <div class="why-grid">
+    <div class="why-card reveal rd1">
+      <div class="why-icon">🏠</div>
+      <h3>WE ARE LOCAL</h3>
+      <p>Based in Kabul. You can visit our office. We understand Afghan passport and documentation realities like no one else.</p>
+    </div>
+    <div class="why-card reveal rd2">
+      <div class="why-icon">⚡</div>
+      <h3>WE ARE FAST</h3>
+      <p>Visa processing and ticket confirmations handled with urgency and precision. Your time matters to us.</p>
+    </div>
+    <div class="why-card reveal rd3">
+      <div class="why-icon">💎</div>
+      <h3>NO HIDDEN COSTS</h3>
+      <p>Transparent pricing in AFN/USD. What we quote is what you pay. No surprises, ever.</p>
+    </div>
+    <div class="why-card reveal rd4">
+      <div class="why-icon">🤝</div>
+      <h3>24/7 SUPPORT</h3>
+      <p>WhatsApp, phone, and in-person support before, during, and after your journey. We are with you every step.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section process-section">
+  <div class="section-title reveal">
+    <h2>From Kabul to Your Destination</h2>
+    <p>Simple Steps to Your Journey</p>
+    <div class="title-line"></div>
+  </div>
+  <div class="process-steps">
+    <div class="process-step reveal rd1">
+      <div class="step-num">1</div>
+      <h4>CONTACT US</h4>
+      <p>WhatsApp, call, or visit our Kabul office. Tell us your travel plans.</p>
+    </div>
+    <div class="process-step reveal rd2">
+      <div class="step-num">2</div>
+      <h4>CHOOSE SERVICE</h4>
+      <p>Umrah, visa, or flight — we guide you through every option.</p>
+    </div>
+    <div class="process-step reveal rd3">
+      <div class="step-num">3</div>
+      <h4>SUBMIT DOCS</h4>
+      <p>We handle all paperwork, logistics, and follow-ups for you.</p>
+    </div>
+    <div class="process-step reveal rd4">
+      <div class="step-num">4</div>
+      <h4>TRAVEL</h4>
+      <p>Board your flight with everything arranged. Your comfort is our priority.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section testimonials-section" id="testimonials">
+  <div class="section-title reveal">
+    <h2>Voices From Our Travelers</h2>
+    <p>What Our Clients Say About Refa Arab</p>
+    <div class="title-line"></div>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card reveal rd1">
+      <div class="stars">★★★★★</div>
+      <p>"Refa Arab made our Umrah journey so smooth. From the flight booking to the hotel near Haram, everything was perfect. The team was available on WhatsApp at every step. Truly grateful."</p>
+      <div class="testimonial-author">Ahmad</div>
+      <div class="testimonial-type">Umrah Package — 2026</div>
+    </div>
+    <div class="testimonial-card reveal rd2">
+      <div class="stars">★★★★★</div>
+      <p>"I needed an Iran visa urgently for a family visit. Refa Arab handled everything within days. Their knowledge of Afghan passport requirements saved me so much time and stress."</p>
+      <div class="testimonial-author">Fatima</div>
+      <div class="testimonial-type">Iran Visa — 2026</div>
+    </div>
+    <div class="testimonial-card reveal rd3">
+      <div class="stars">★★★★★</div>
+      <p>"Best flight ticket prices I have found in Kabul. They compared multiple airlines and got me a great deal to Istanbul. Professional, honest, and fast service every time."</p>
+      <div class="testimonial-author">Mohammad</div>
+      <div class="testimonial-type">Flight Booking — 2026</div>
+    </div>
+    <div class="testimonial-card reveal rd4">
+      <div class="stars">★★★★★</div>
+      <p>"The team at Refa Arab treated us like family. They explained every cost clearly with no hidden fees. I have recommended them to all my relatives in Kabul."</p>
+      <div class="testimonial-author">Zahra</div>
+      <div class="testimonial-type">Tajikistan Visa — 2026</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner" id="contact">
+  <div class="cta-banner-bg"></div>
+  <div class="cta-content">
+    <h2>Let Us Handle the Details.<br><em>You Focus on the Journey.</em></h2>
+    <p>Whether it is Umrah, a visa, or your next flight — we are here to make it easy, honest, and comfortable.</p>
+    <div class="cta-buttons">
+      <a href="https://wa.me/93777181980?text=Salam%2C%20I%20am%20interested%20in%20your%20services." target="_blank" class="btn-wa">💬 Chat on WhatsApp</a>
+      <a href="tel:+93780660666" class="btn-call-cta">📞 Call Us Now</a>
+    </div>
+    <p class="working-hours">Working Hours: Saturday – Thursday, 8:00 AM – 5:00 PM Kabul Time</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section faq-section" id="faq">
+  <div class="section-title reveal">
+    <h2>Frequently Asked Questions</h2>
+    <p>Everything You Need to Know</p>
+    <div class="title-line"></div>
+  </div>
+  <div class="faq-container">
+    <div class="faq-item reveal">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        What documents do I need for Umrah from Afghanistan?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        <p>You will need a valid Afghan passport (minimum 6 months validity), two passport-sized photos, a completed Umrah application form, and a vaccination certificate (meningitis). We guide you through every document and handle the submission process. Contact us on WhatsApp for a complete checklist tailored to your situation.</p>
+      </div>
+    </div>
+    <div class="faq-item reveal">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        How long does Iran visa processing take?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        <p>Standard Iran visa processing for Afghan passport holders typically takes 7 to 14 business days, depending on the visa type (pilgrimage, medical, business, or family visit). We handle all documentation and track your application to ensure the fastest possible turnaround.</p>
+      </div>
+    </div>
+    <div class="faq-item reveal">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Do you offer installment payment plans?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        <p>Yes, for Umrah packages and certain visa services, we offer flexible installment payment plans to make your journey more accessible. Contact us directly to discuss a payment schedule that works for your family.</p>
+      </div>
+    </div>
+    <div class="faq-item reveal">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Can you book flights from Kabul or do I need to travel to another city?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+      <response clipped><NOTE>Result is longer than **10000 characters**, will be **truncated**.</NOTE>
